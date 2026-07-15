@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
+from src.api.document_router import router as document_router
 
 app = FastAPI()
 
@@ -7,6 +8,7 @@ app = FastAPI()
 def home():
     return {"message": "Hello World!"}
 
+app.include_router(document_router)
 
 if __name__=='__main__':
     uvicorn.run(
